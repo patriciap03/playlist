@@ -2,7 +2,7 @@
 <html>
 
   <head>
-      <title>Playlist</title>
+      <title>Playlist Project</title>
       
       <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -19,18 +19,37 @@
 
   <body>
     <div class="container text-center">
-      <h1> My Playlist </h1>
-      <input>
-      <input>
-      <input>
-      <input>
-      <button> Add Song </button>
-      <div class="songs">
         
-        
-        
-      </div>  
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 id="topheader"> My Playlist </h1>
+            </div>
+        </div>
       
+        <div class="row">
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn">Add Song</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+                <div class="modal-content">
+                <span class="close">&times;</span>
+                <input id="nameofSong">
+                <input id="artist">
+                <input id="mp3url">
+                <input id="imgurl">
+                <button id="close">Close</button>
+                <button id="addsong">Add Song</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row" id="playlist">
+            
+        </div>
+        
     </div>
   </body>
 
