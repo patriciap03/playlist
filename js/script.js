@@ -16,15 +16,6 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
 // Songs
-var mySong = 
-    {
-	"title":"If I Ain't Got You",
-	"artist":"Alicia Keys",
-	"song-length":"3 minutes 48 seconds",
-	"mp3-url":"https://www.youtube.com/watch?v=Ju8Hr50Ckwk",
-	"image-url":"https://images.genius.com/b42cf2813036aa694cf44fec6b8d3ff6.1000x1000x1.jpg",
-};
-
 
 var myPlayList = [
 	{
@@ -48,51 +39,67 @@ var myPlayList = [
 
 ];
 
-var title = $("#nameofSong").val();
-var artist = $("#artist").val();
-var mp3url = $("#mp3url").val();
-var imgurl = $("#imgurl").val();
-
 // DOCUMENT READY FUNCTION
 $( document ).ready(function() {
 	
 	displayList(myPlayList);
-	
+	$("#submit").click( function(){
+		clearList();
+		addSong();
+		displayList(myPlayList);
+	});
 
 });
 
 function displayList(array){
 	
-
-    for( var i=0; i<array.length; i++) {
+	for( var i=0; i<array.length; i++) {
     
         $("#playlist").append(
-            '<div class="nameheader">\
-                <h3>' + array[i].title + '</h3>\
-            </div>\
-            <div class="artist">\
-                <p>' + array[i].artist + '</p>\
-            <div class="link">\
-                <a href="' + array[i].mp3url + '">Link</a>\
-            </div>\
-            <div class="img">\
-                <img src="' + array[i].imageurl + '">\
-            </div>\
-            <button aria-label="Close Account Info Modal Box" id="x">&times;</button> '
-         );
-       
+           '<div class="col-lg-4" id="indivual">'+ 
+            	'<ul style="list-style: none;">'+
+            	'<li class="nameheader">\
+                	<h3>' + array[i].title + '</h3>\
+            	</li\
+            	<li class="artist">\
+            	   <p>' + array[i].artist + '</p>'+
+            	'</li>'+
+				'<li class="link">' +
+					`<a href="`+ array[i].mp3url + '">Link to Song</a>\
+				 </li>'+
+				'<button>&times</button>'+
+				'<li id="image">\
+					<img src="' + array[i].imageurl + '">\
+				</li>'+
+				'</ul>'+
+			'</div>'
+		);
+
     }
-
 }
-
 function clearList(){
   
-  
+  $("#playlist").empty();
   
 }
 
 function addSong(){
  
+ var titleInput = $("#nameofSong").val();
+ var artistInput = $("#artist").val();
+ var mp3urlInput = $("#mp3url").val();
+ var imgurlInput = $("#imgurl").val(); 
   
+  var song = {
+  	"title": titleInput,
+  	"artist": artistInput,
+  	"mp3url": mp3urlInput,
+  	"imageurl": imgurlInput,
+  };
+  
+ myPlayList.push(song); 
   
 }
+
+
+

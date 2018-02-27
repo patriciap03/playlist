@@ -3,14 +3,16 @@
 
   <head>
       <title>Playlist Project</title>
-      
-      <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     
 
       <!-- Link style.css here -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
 
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        <!-- Link script.js here -->
       <script src="js/script.js"></script>
 
@@ -20,35 +22,49 @@
   <body>
     <div class="container text-center">
         
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 id="topheader"> My Playlist </h1>
+        <div class="row" id="topheader">
+            <div class="container-fluid">
+                <h1> My Playlist </h1>
             </div>
         </div>
       
         <div class="row">
-            <!-- Trigger/Open The Modal -->
-            <button id="myBtn">Add Song</button>
+            <div class="col-lg-4">
+               <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addSong">Add Song</button>
 
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-            <!-- Modal content -->
-                <div class="modal-content">
-                <span class="close">&times;</span>
-                <input id="nameofSong">
-                <input id="artist">
-                <input id="mp3url">
-                <input id="imgurl">
-                <button id="close">Close</button>
-                <button id="addsong">Add Song</button>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h4 class="modal-title">Add Song</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input id="nameofsong" placeholder="Name of the Song"> <br>
+                        <input id="artist" placeholder="Artist"> <br>
+                        <input id="mp3url" placeholder="MP3 Url"> <br>
+                        <input id="imgurl" placeholder="Image Url"> <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="submit">Submit</button>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    </div>
+
                 </div>
-            </div>
+                </div>
+                
+                </div>
         </div>
         
+        <form class="form-inline">
         <div class="row" id="playlist">
-            
+          
         </div>
+        </form>
         
     </div>
   </body>
